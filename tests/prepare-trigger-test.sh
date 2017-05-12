@@ -10,7 +10,7 @@ trigger=$3
 
 # create a noop trigger
 echo "Creating trigger $trigger"
-curl -u "$credentials" "$host/api/v1/namespaces/_/triggers/$trigger" -XPUT -d '{"name":"$trigger"}' -H "Content-Type: application/json"
+curl -u "$credentials" "$host/api/v1/namespaces/_/triggers/$trigger&overwrite=true" -XPUT -d '{"name":"$trigger"}' -H "Content-Type: application/json"
 
 # fire the noop trigger
 echo "Running $trigger once to assert an intact system"
