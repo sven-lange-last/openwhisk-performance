@@ -13,7 +13,7 @@ concurrency=$3
 samples=${4:-10000}
 
 trigger="trigger-test"
-"$currentDir/create.sh" "$host" "$credentials" "$trigger"
+"$currentDir/prepare-trigger-test.sh" "$host" "$credentials" "$trigger"
 
 # run throughput tests
 encodedAuth=$(echo "$credentials" | base64 -w 0)
