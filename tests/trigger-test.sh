@@ -17,4 +17,4 @@ trigger="trigger-test"
 
 # run throughput tests
 encodedAuth=$(echo "$credentials" | base64 -w 0)
-docker run --rm markusthoemmes/loadtest loadtest -n "$samples" -c "$concurrency" -k -m POST -H "Authorization: basic $encodedAuth" "$host/api/v1/namespaces/_/triggers/$trigger"
+docker run --rm markusthoemmes/loadtest loadtest -n "$samples" -c "$concurrency" -k --insecure -m POST -H "Authorization: basic $encodedAuth" "$host/api/v1/namespaces/_/triggers/$trigger"
